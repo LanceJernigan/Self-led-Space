@@ -1,0 +1,180 @@
+.component {
+	padding: 0 25px;
+}
+
+.wrapper {
+	max-width: var(--width-max);
+	margin: auto;
+	position: relative;
+	min-height: calc(100vh - 150px);
+	max-height: 800px;
+	border-radius: 20px;
+	padding: 20px;
+	overflow: hidden;
+	display: grid;
+	align-content: end;
+	gap: 50px;
+
+	@media (min-width: 1024px) {
+		grid-auto-flow: column;
+		grid-template-columns: 1fr 1fr;
+		align-content: stretch;
+		gap: 120px;
+	}
+}
+
+.content {
+	padding-top: 150px;
+	mix-blend-mode: difference;
+	color: var(--color-light);
+	display: grid;
+	gap: 25px;
+	align-content: end;
+
+	@media (min-width: 1024px) {
+		padding: 0 0 80px 30px;
+	}
+
+	p {
+		font-weight: 900;
+	}
+}
+
+.quote {
+	padding: 20px;
+	position: relative;
+	display: grid;
+	align-content: end;
+	position: relative;
+
+	@media (min-width: 1024px) {
+		padding: 35px;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		backdrop-filter: blur(10);
+		background: rgba(255, 255, 255, 0.5);
+		border: 2px solid rgba(255, 255, 255, 0.5);
+		border-radius: 20px;
+	}
+}
+
+.list {
+	display: grid;
+}
+
+.item {
+	display: grid;
+	gap: 20px;
+	grid-column: 1;
+	grid-row: 1;
+	align-content: end;
+
+	&[data-active="true"] {
+		h2 {
+			color: var(--color-teal);
+		}
+
+		h6 {
+			color: var(--color-light);
+		}
+
+		svg {
+			opacity: 1;
+			animation: progress-animation 5s linear 0s 1 forwards;
+		}
+	}
+
+	h2 {
+		color: transparent;
+		mix-blend-mode: difference;
+		font-weight: 700;
+		font-size: 40px;
+		transition: all 1s ease-in-out;
+
+		@media (min-width: 768px) {
+			font-size: 60px;
+		}
+	}
+
+	h6 {
+		transition: all 1s ease-in-out;
+		color: transparent;
+		mix-blend-mode: color-dodge;
+		font-weight: 500;
+		display: grid;
+		grid-auto-flow: column;
+		justify-content: space-between;
+	}
+
+	svg {
+		opacity: 0;
+		transition: opacity 0.5s ease-in-out;
+	}
+}
+
+.progress {
+	--size: 30px;
+	--half-size: calc(var(--size) / 2);
+	--stroke-width: 5px;
+	--radius: calc((var(--size) - var(--stroke-width)) / 2);
+	--circumference: calc(var(--radius) * pi * 2);
+	--dash: calc((var(--progress) * var(--circumference)) / 100);
+
+	--progress: 100;
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+
+	@media (min-width: 1024px) {
+		bottom: 35px;
+		right: 35px;
+	}
+
+	circle {
+		cx: var(--half-size);
+		cy: var(--half-size);
+		r: var(--radius);
+		stroke-width: var(--stroke-width);
+		fill: none;
+		stroke-linecap: round;
+	}
+}
+
+.progressBg {
+	stroke: var(--color-light);
+	opacity: 0.2;
+}
+
+.progressFg {
+	transform: rotate(-90deg);
+	transform-origin: var(--half-size) var(--half-size);
+	stroke-dasharray: var(--dash) calc(var(--circumference) - var(--dash));
+	transition: stroke-dasharray 0s linear 0s;
+	stroke: var(--color-light);
+}
+
+@property --progress {
+	syntax: "<number>";
+	inherits: false;
+	initial-value: 0;
+}
+@keyframes progress-animation {
+	from {
+		--progress: 0;
+	}
+	to {
+		--progress: 100;
+	}
+}
+
+.background {
+	object-fit: cover;
+	z-index: -1;
+}
