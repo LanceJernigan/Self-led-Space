@@ -6,8 +6,7 @@
 	max-width: var(--width-max);
 	margin: auto;
 	position: relative;
-	min-height: calc(100vh - 150px);
-	max-height: 800px;
+	min-height: clamp(0px, calc(100vh - 150px), 800px);
 	border-radius: 20px;
 	padding: 20px;
 	overflow: hidden;
