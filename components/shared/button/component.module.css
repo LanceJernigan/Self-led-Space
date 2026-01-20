@@ -1,0 +1,9 @@
+.component {
+	padding: 10px 25px;
+	background: color-mix(in srgb, var(--color-dark) 50%, transparent);
+	width: max-content;
+	color: var(--color-light);
+	border: solid 1px var(--color-dark);
+	border-radius: 100px;
+	font-family: var(--font-lato);
+}

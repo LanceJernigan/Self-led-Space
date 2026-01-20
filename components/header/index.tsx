@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import styles from "./component.module.css";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import Menu from "@/components/shared/icons/menu";
 import { useState } from "react";
 

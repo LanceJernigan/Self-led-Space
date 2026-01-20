@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Raleway, Lato } from "next/font/google";
+import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
 import Header from "@/components/header";
 
@@ -24,11 +25,13 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<body className={`${raleway.variable} ${lato.variable} antialiased`}>
-				<Header />
-				{children}
-			</body>
-		</html>
+		<ViewTransitions>
+			<html lang="en">
+				<body className={`${raleway.variable} ${lato.variable} antialiased`}>
+					<Header />
+					{children}
+				</body>
+			</html>
+		</ViewTransitions>
 	);
 }
