@@ -1,0 +1,6 @@
+::view-transition-old(about-image-wrapper),
+::view-transition-new(about-image-wrapper) {
+	height: 100%;
+	overflow: clip;
+	border-radius: 20px;
+}

@@ -36,14 +36,18 @@ const Header = () => {
 		<>
 			<header className={styles.component}>
 				<div className={styles.wrapper}>
-					<Image
+					<Link
+						href="/"
 						className={styles.logo}
-						src="/assets/images/logo.png"
-						width="120"
-						height="120"
-						alt="logo"
-						quality="100"
-					/>
+					>
+						<Image
+							src="/assets/images/logo.png"
+							width="120"
+							height="120"
+							alt="logo"
+							quality="100"
+						/>
+					</Link>
 					<button
 						className={styles.menuToggle}
 						onClick={() => setOpen(!open)}

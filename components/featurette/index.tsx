@@ -1,31 +1,71 @@
 import Image from "next/image";
 import styles from "./component.module.css";
 import Button from "@/components/shared/button";
+import { FeaturetteProps } from "./types";
 
-const Featurette = () => (
+const Featurette = ({
+	heading,
+	subheading,
+	content,
+	name,
+	image,
+	link,
+}: FeaturetteProps) => (
 	<section className={styles.component}>
 		<div className={styles.wrapper}>
-			<div className={styles.content}>
+			<div
+				className={styles.content}
+				style={{
+					...(name ? { viewTransitionName: `${name}-content-wrapper` } : {}),
+				}}
+			>
 				<header className={styles.header}>
-					<h3 className={styles.subheading}>About</h3>
-					<h2 className={styles.heading}>
-						Guided by compassion, grounded in care
+					{!!subheading && (
+						<h3
+							className={styles.subheading}
+							style={{
+								...(name
+									? { viewTransitionName: `${name}-content-subheading` }
+									: {}),
+							}}
+						>
+							{subheading}
+						</h3>
+					)}
+					<h2
+						className={styles.heading}
+						style={{
+							...(name
+								? { viewTransitionName: `${name}-content-heading` }
+								: {}),
+						}}
+					>
+						{heading}
 					</h2>
 				</header>
-				<p>
-					We believe therapy should feel natural and supportive — a space to
-					breathe, reflect, and grow. Our collective of therapists is here to
-					walk alongside you, wherever you are in your journey.
-				</p>
-				<Button />
+				<div
+					className={styles.description}
+					style={{
+						...(name
+							? { viewTransitionName: `${name}-content-description` }
+							: {}),
+					}}
+				>
+					{content}
+				</div>
+				{!!link?.href && !!link?.label && <Button />}
 			</div>
 			<div className={styles.image}>
 				<Image
-					src="/assets/images/about.jpg"
-					alt="Calm mountain range"
+					src={image.src}
+					alt={image.alt}
 					fill
 					sizes="(min-width: 768px) 500, 100vw"
 					quality="100"
+					preload
+					style={{
+						...(name ? { viewTransitionName: `${name}-image-wrapper` } : {}),
+					}}
 				/>
 			</div>
 		</div>

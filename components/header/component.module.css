@@ -14,6 +14,7 @@
 	height: 100px;
 	backdrop-filter: blur(30);
 	padding: 0 25px;
+	view-transition-name: header;
 
 	@media (min-width: 768px) {
 		padding: 0 50px;
