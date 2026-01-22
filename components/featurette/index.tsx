@@ -10,9 +10,13 @@ const Featurette = ({
 	name,
 	image,
 	link,
+	reverse,
 }: FeaturetteProps) => (
 	<section className={styles.component}>
-		<div className={styles.wrapper}>
+		<div
+			className={styles.wrapper}
+			data-reverse={reverse}
+		>
 			<div
 				className={styles.content}
 				style={{
@@ -53,14 +57,16 @@ const Featurette = ({
 				>
 					{content}
 				</div>
-				{!!link?.href && !!link?.label && <Button />}
+				{!!link?.href && !!link?.label && (
+					<Button href={link.href}>{link.label}</Button>
+				)}
 			</div>
 			<div className={styles.image}>
 				<Image
 					src={image.src}
 					alt={image.alt}
 					fill
-					sizes="(min-width: 768px) 500, 100vw"
+					sizes="(max-width: 768px) 100vw, 500px"
 					quality="100"
 					preload
 					style={{

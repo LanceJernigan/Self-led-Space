@@ -1,47 +1,68 @@
 import Image from "next/image";
 import styles from "./component.module.css";
 import "./animations.css";
+import { HeroSecondaryProps } from "./types";
 
-const HeroSecondary = () => (
+const HeroSecondary = ({
+	heading,
+	subheading,
+	content,
+	image,
+	name,
+}: HeroSecondaryProps) => (
 	<section className={styles.component}>
 		<div className={styles.wrapper}>
 			<div
 				className={styles.content}
-				style={{ viewTransitionName: "about-content-wrapper" }}
+				style={{
+					...(name ? { viewTransitionName: `${name}-content-wrapper` } : {}),
+				}}
 			>
 				<div className={styles.header}>
 					<header className={styles.header}>
 						<h2
 							className={styles.subheading}
-							style={{ viewTransitionName: "about-content-subheading" }}
+							style={{
+								...(name
+									? { viewTransitionName: `${name}-content-subheading` }
+									: {}),
+							}}
 						>
-							About
+							{subheading}
 						</h2>
 						<h1
 							className={styles.heading}
-							style={{ viewTransitionName: "about-content-heading" }}
+							style={{
+								...(name
+									? { viewTransitionName: `${name}-content-heading` }
+									: {}),
+							}}
 						>
-							Guided by compassion, <br />
-							grounded in care
+							{heading}
 						</h1>
 					</header>
 				</div>
-				<p style={{ viewTransitionName: "about-content-description" }}>
-					We believe therapy should feel natural and supportive — a space to
-					breathe, reflect, and grow. Our collective of therapists is here to
-					walk alongside you, wherever you are in your journey.
-				</p>
+				<div
+					className={styles.description}
+					style={{
+						...(name
+							? { viewTransitionName: `${name}-content-description` }
+							: {}),
+					}}
+				>
+					{content}
+				</div>
 			</div>
 			<Image
-				src="/assets/images/about.jpg"
-				alt="Calm mountain range"
+				src={image.src}
+				alt={image.alt}
 				fill
 				priority
-				sizes="(min-width: 1340px) 1340px, 100vw"
+				sizes="(max-width: 1340px) 100vw, 1340px"
 				className={styles.background}
 				quality="100"
 				style={{
-					viewTransitionName: "about-image-wrapper",
+					...(name ? { viewTransitionName: `${name}-image-wrapper` } : {}),
 				}}
 			/>
 		</div>

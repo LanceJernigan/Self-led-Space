@@ -14,6 +14,12 @@
 
 	@media (min-width: 768px) {
 		grid-template-columns: 500px 1fr;
+		grid-template-areas: "image content";
+
+		&[data-reverse="true"] {
+			grid-template-columns: 1fr 500px;
+			grid-template-areas: "content image";
+		}
 	}
 }
 
@@ -21,6 +27,8 @@
 	display: grid;
 	gap: 25px;
 	align-content: center;
+	grid-area: content;
+	text-wrap: balance;
 }
 
 .header {

@@ -11,4 +11,5 @@ export type FeaturetteProps = {
 		label: string;
 		href: string;
 	};
+	reverse?: boolean;
 };

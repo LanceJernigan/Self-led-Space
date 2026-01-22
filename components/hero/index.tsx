@@ -69,7 +69,7 @@ const Hero = () => {
 					alt="Calm mountain range"
 					fill
 					priority
-					sizes="(min-width: 1340px) 1340px, 100vw"
+					sizes="(max-width: 1340px) 100vw, 1340px"
 					className={styles.background}
 					quality="100"
 				/>

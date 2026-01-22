@@ -4,3 +4,10 @@
 	overflow: clip;
 	border-radius: 20px;
 }
+
+::view-transition-old(ourTeam-image-wrapper),
+::view-transition-new(ourTeam-image-wrapper) {
+	height: 100%;
+	overflow: clip;
+	border-radius: 20px;
+}

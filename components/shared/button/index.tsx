@@ -1,12 +1,17 @@
 import { Link } from "next-view-transitions";
+import NextLink from "next/link";
 import styles from "./component.module.css";
 
-const Button = () => (
+const Button = ({
+	className,
+	children,
+	...props
+}: React.ComponentProps<typeof NextLink>) => (
 	<Link
-		href="/about"
-		className={styles.component}
+		className={`${styles.component} ${className}`}
+		{...props}
 	>
-		Read More
+		{children}
 	</Link>
 );
 
