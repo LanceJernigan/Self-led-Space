@@ -88,7 +88,7 @@
 
 		svg {
 			opacity: 1;
-			animation: progress-animation 5s linear 0s 1 forwards;
+			animation: progress-animation var(--duration) linear 0s 1 forwards;
 		}
 	}
 

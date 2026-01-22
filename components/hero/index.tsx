@@ -21,11 +21,12 @@ const quotes = [
 
 const Hero = () => {
 	const [currentSlide, setCurrentSlide] = useState(0);
+	const duration = 10;
 
 	useEffect(() => {
 		const slideInterval = setInterval(() => {
 			setCurrentSlide((prevSlide) => (prevSlide + 1) % quotes.length);
-		}, 5000);
+		}, duration * 1000);
 		return () => clearInterval(slideInterval);
 	}, []);
 
@@ -40,7 +41,10 @@ const Hero = () => {
 					</p>
 				</div>
 				<div className={styles.quote}>
-					<ul className={styles.list}>
+					<ul
+						className={styles.list}
+						style={{ "--duration": `${duration}s` } as React.CSSProperties}
+					>
 						{quotes.map((quote, index) => (
 							<li
 								className={styles.item}
