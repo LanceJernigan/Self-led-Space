@@ -42,7 +42,13 @@
 	width: 100%;
 
 	@media (min-width: 1024px) {
-		padding: 200px 50px 100px;
+		padding: 200px 50px;
+	}
+
+	&:has(.buttonWrapper) {
+		@media (min-width: 1024px) {
+			padding: 200px 50px 100px;
+		}
 	}
 }
 
@@ -57,6 +63,12 @@
 
 	@media (min-width: 1024px) {
 		grid-template-columns: repeat(3, 1fr);
+	}
+
+	&[data-large="true"] {
+		@media (min-width: 1024px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 }
 

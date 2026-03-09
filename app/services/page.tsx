@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Featurette from "@/components/featurette";
 
 export const metadata: Metadata = {
-	title: "Our Services",
-	description: "Explore our range of therapeutic services designed to support individuals, couples, and families through every stage of life.",
+    title: "Our Services",
+    description: "Explore our range of therapeutic services designed to support individuals, couples, and families through every stage of life.",
 };
 import HeroSecondary from "@/components/heroSecondary";
 import styles from "./page.module.css";
 import Contact from "@/components/contact";
-import Approach from "@/components/approach";
+import CardsFeature from "@/components/cardsFeature";
 
 const Team = () => (
     <div className={styles.spacing}>
@@ -42,7 +42,32 @@ const Team = () => (
                 alt: "Who We Are background",
             }}
         />
-        <Approach />
+        <CardsFeature
+            heading="Treatment Approaches"
+            description={
+                <p>
+                    We use evidence-based methods and warm, collaborative guidance to help you reach your goals.
+                </p>
+            }
+            image={{
+                src: "/assets/images/services.jpg",
+                alt: "Forest background",
+            }}
+            cards={[
+                {
+                    title: "Internal Family Systems (IFS)",
+                    text: "An evidence-based therapy that helps you understand and heal the different parts of you, fostering self-compassion and inner balance.",
+                },
+                {
+                    title: "Acceptance and Commitment (ACT)",
+                    text: "Helps you accept what is out of your personal control, and commit to action that improves and enriches your life.",
+                },
+                {
+                    title: "Attachment-based",
+                    text: "Focuses on the deep bonds formed in early relationships, helping you understand how they impact current patterns for healthier connections.",
+                },
+            ]}
+        />
         <Featurette
             name="ourTeam"
             subheading="Our Team"

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 import HeroSecondary from "@/components/heroSecondary";
 import styles from "./page.module.css";
 import Contact from "@/components/contact";
-import Approach from "@/components/approach";
+import CardsFeature from "@/components/cardsFeature";
 
 const About = () => (
 	<div className={styles.spacing}>
@@ -70,7 +70,37 @@ const About = () => (
 			}}
 			reverse
 		/>
-		<Approach name="services" />
+		<CardsFeature
+			name="services"
+			heading="Our Approach to Care"
+			subheading="Approach"
+			description={
+				<p>
+					We offer therapy that meets you where you are — whether you&apos;re
+					navigating anxiety, relationship challenges, or simply seeking a deeper
+					sense of calm and connection.
+				</p>
+			}
+			image={{
+				src: "/assets/images/services.jpg",
+				alt: "Forest background",
+			}}
+			cards={[
+				{
+					title: "Internal Family Systems (IFS)",
+					text: "An evidence-based therapy that helps you understand and heal the different parts of you, fostering self-compassion and inner balance.",
+				},
+				{
+					title: "Acceptance and Commitment (ACT)",
+					text: "Helps you accept what is out of your personal control, and commit to action that improves and enriches your life.",
+				},
+				{
+					title: "Attachment-based",
+					text: "Focuses on the deep bonds formed in early relationships, helping you understand how they impact current patterns for healthier connections.",
+				},
+			]}
+			link={{ label: "Learn More", href: "/services" }}
+		/>
 		<Featurette
 			name="ourTeam"
 			subheading="Our Team"
