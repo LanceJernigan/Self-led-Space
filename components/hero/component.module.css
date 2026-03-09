@@ -166,10 +166,12 @@
 	inherits: false;
 	initial-value: 0;
 }
+
 @keyframes progress-animation {
 	from {
 		--progress: 0;
 	}
+
 	to {
 		--progress: 100;
 	}
@@ -177,5 +179,6 @@
 
 .background {
 	object-fit: cover;
+	object-position: bottom;
 	z-index: -1;
 }
