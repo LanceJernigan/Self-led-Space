@@ -2,22 +2,49 @@ import Image from "next/image";
 import Button from "@/components/shared/button";
 import styles from "./component.module.css";
 
-const Approach = () => {
+const Approach = ({ name }: { name?: string }) => {
 	return (
 		<section className={styles.component}>
-			<header className={styles.header}>
-				<div className={styles.headings}>
-					<h3 className={styles.subheading}>Services</h3>
-					<h2 className={styles.heading}>Our Approach to Care</h2>
+			<header className={styles.header}
+				style={{
+					...(name ? { viewTransitionName: `${name}-content-wrapper` } : {}),
+				}}
+			>
+				<div
+					className={styles.headings}
+				>
+					<h3
+						className={styles.subheading}
+						style={{
+							...(name ? { viewTransitionName: `${name}-content-subheading` } : {}),
+						}}
+					>
+						Approach
+					</h3>
+					<h2
+						className={styles.heading}
+						style={{
+							...(name ? { viewTransitionName: `${name}-content-heading` } : {}),
+						}}
+					>
+						Our Approach to Care
+					</h2>
 				</div>
-				<p className={styles.description}>
+				<p
+					className={styles.description}
+					style={{
+						...(name ? { viewTransitionName: `${name}-content-description` } : {}),
+					}}
+				>
 					We offer therapy that meets you where you are — whether you&apos;re
 					navigating anxiety, relationship challenges, or simply seeking a deeper
 					sense of calm and connection.
 				</p>
 			</header>
 
-			<div className={styles.wrapper}>
+			<div
+				className={styles.wrapper}
+			>
 				<Image
 					src="/assets/images/services.jpg"
 					alt="Forest background"
@@ -25,8 +52,13 @@ const Approach = () => {
 					sizes="100vw"
 					quality={100}
 					className={styles.background}
+					style={{
+						...(name ? { viewTransitionName: `${name}-image-wrapper` } : {}),
+					}}
 				/>
-				<div className={styles.cards}>
+				<div
+					className={styles.cards}
+				>
 					<div className={styles.card}>
 						<h4 className={styles.cardTitle}>Internal Family Systems (IFS)</h4>
 						<p className={styles.cardText}>

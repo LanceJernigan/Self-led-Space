@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Featurette from "@/components/featurette";
+
+export const metadata: Metadata = {
+	title: "Home",
+	description: "Welcome to Self-led Space. We offer compassionate, personalized therapy to help you breathe, reflect, and grow.",
+};
 import Hero from "@/components/hero";
 import Approach from "@/components/approach";
 import Contact from "@/components/contact";
@@ -29,7 +35,7 @@ export default function Home() {
 				}}
 				reverse
 			/>
-			<Approach />
+			<Approach name="services" />
 			<Featurette
 				name="ourTeam"
 				subheading="Our Team"

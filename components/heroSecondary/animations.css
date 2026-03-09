@@ -11,3 +11,10 @@
 	overflow: clip;
 	border-radius: 20px;
 }
+
+::view-transition-old(services-image-wrapper),
+::view-transition-new(services-image-wrapper) {
+	height: 100%;
+	overflow: clip;
+	border-radius: 20px;
+}

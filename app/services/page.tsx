@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Featurette from "@/components/featurette";
+
+export const metadata: Metadata = {
+	title: "Our Services",
+	description: "Explore our range of therapeutic services designed to support individuals, couples, and families through every stage of life.",
+};
 import HeroSecondary from "@/components/heroSecondary";
 import styles from "./page.module.css";
 import Contact from "@/components/contact";

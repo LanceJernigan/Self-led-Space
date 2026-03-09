@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Featurette from "@/components/featurette";
+
+export const metadata: Metadata = {
+	title: "Contact Us",
+	description: "Get in touch with us to schedule a session. We're here to help you find the support you need on your healing journey.",
+};
 import styles from "./page.module.css";
 import Approach from "@/components/approach";
 import Contact from "@/components/contact";
@@ -6,7 +12,7 @@ import Contact from "@/components/contact";
 const Team = () => (
 	<div className={styles.spacing}>
 		<Contact />
-		<Approach />
+		<Approach name="services" />
 		<Featurette
 			name="ourTeam"
 			subheading="Our Team"

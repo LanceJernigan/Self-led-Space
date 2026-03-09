@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Featurette from "@/components/featurette";
+
+export const metadata: Metadata = {
+	title: "Our Team",
+	description: "Meet our dedicated team of therapists who bring warmth, experience, and genuine care to every session. Learn more about our specialized clinicians.",
+};
 import HeroSecondary from "@/components/heroSecondary";
 import styles from "./page.module.css";
 import Approach from "@/components/approach";
@@ -46,7 +52,7 @@ const Team = () => (
 				label: "Read More",
 			}}
 		/>
-		<Approach />
+		<Approach name="services" />
 		<Featurette
 			name="about"
 			subheading="About"
