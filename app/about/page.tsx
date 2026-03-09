@@ -1,6 +1,8 @@
 import Featurette from "@/components/featurette";
 import HeroSecondary from "@/components/heroSecondary";
 import styles from "./page.module.css";
+import Contact from "@/components/contact";
+import Approach from "@/components/approach";
 
 const About = () => (
 	<div className={styles.spacing}>
@@ -62,6 +64,7 @@ const About = () => (
 			}}
 			reverse
 		/>
+		<Approach />
 		<Featurette
 			name="ourTeam"
 			subheading="Our Team"
@@ -82,7 +85,9 @@ const About = () => (
 				label: "Meet Our Team",
 				href: "/team",
 			}}
+			reverse
 		/>
+		<Contact />
 	</div>
 );
 

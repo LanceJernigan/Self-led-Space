@@ -1,5 +1,7 @@
 import Featurette from "@/components/featurette";
 import Hero from "@/components/hero";
+import Approach from "@/components/approach";
+import Contact from "@/components/contact";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -25,7 +27,9 @@ export default function Home() {
 					label: "Read More",
 					href: "/about",
 				}}
+				reverse
 			/>
+			<Approach />
 			<Featurette
 				name="ourTeam"
 				subheading="Our Team"
@@ -48,6 +52,7 @@ export default function Home() {
 				}}
 				reverse
 			/>
+			<Contact />
 		</div>
 	);
 }

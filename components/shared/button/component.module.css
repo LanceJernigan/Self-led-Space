@@ -1,9 +1,19 @@
 .component {
 	padding: 10px 25px;
-	background: color-mix(in srgb, var(--color-dark) 50%, transparent);
 	width: max-content;
-	color: var(--color-light);
-	border: solid 1px var(--color-dark);
 	border-radius: 100px;
 	font-family: var(--font-lato);
+	backdrop-filter: blur(10px);
+
+	&[data-variant="dark"] {
+		background: color-mix(in srgb, var(--color-dark) 50%, transparent);
+		color: var(--color-light);
+		border: solid 1px var(--color-dark);
+	}
+
+	&[data-variant="light"] {
+		background: color-mix(in srgb, var(--color-light) 50%, transparent);
+		color: var(--color-dark);
+		border: solid 1px var(--color-light);
+	}
 }

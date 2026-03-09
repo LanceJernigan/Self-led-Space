@@ -1,0 +1,18 @@
+.component {
+	background: var(--color-dark);
+	color: var(--color-light);
+	padding: 20px 25px;
+	margin-top: 50px;
+}
+
+.wrapper {
+	max-width: var(--width-max);
+	margin: auto;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+
+	p {
+		font-size: 0.8rem;
+	}
+}

@@ -3,6 +3,7 @@ import { Raleway, Lato } from "next/font/google";
 import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 const raleway = Raleway({
 	variable: "--font-raleway",
@@ -30,6 +31,7 @@ export default function RootLayout({
 				<body className={`${raleway.variable} ${lato.variable} antialiased`}>
 					<Header />
 					{children}
+					<Footer />
 				</body>
 			</html>
 		</ViewTransitions>
