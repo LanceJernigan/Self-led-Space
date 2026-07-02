@@ -1,0 +1,42 @@
+.component {
+	padding: 0 25px;
+}
+
+.wrapper {
+	max-width: 800px;
+	margin: auto;
+	display: grid;
+	gap: 40px;
+}
+
+.heading {
+	text-align: center;
+}
+
+.list {
+	display: grid;
+	gap: 25px;
+}
+
+.item {
+	display: grid;
+	gap: 8px;
+}
+
+.label {
+	font-family: var(--font-raleway);
+	font-weight: 900;
+	font-size: 1.728rem;
+	line-height: 1.175em;
+}
+
+.content {
+	margin: 0;
+	display: grid;
+	gap: 0;
+
+	span {
+		font-family: var(--font-lato);
+		font-size: 1rem;
+	}
+}

@@ -1,0 +1,55 @@
+.component {
+	padding: 0 25px;
+}
+
+.wrapper {
+	max-width: var(--width-max);
+	margin: auto;
+}
+
+.banner {
+	position: relative;
+	border-radius: 20px;
+	overflow: hidden;
+	aspect-ratio: 7 / 10;
+	max-height: 500px;
+	width: 100%;
+
+	@media (min-width: 768px) {
+		aspect-ratio: 8 / 3;
+		max-height: none;
+	}
+}
+
+.background {
+	object-fit: cover;
+
+	/* the banner image is a wide landscape; on the narrow mobile crop it reads
+	   too zoomed-out, so scale it up to bring the horizon in closer */
+	/* @media (max-width: 767px) {
+		transform: scale(1.3);
+	} */
+}
+
+/* the portrait sits in normal flow and is pulled up to overlap the banner,
+   so the layout naturally reserves the space it dips below */
+.photo {
+	position: relative;
+	z-index: 1;
+	aspect-ratio: 1 / 1;
+	max-width: 340px;
+	width: calc(100% - 50px);
+	margin: -170px auto 0;
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+
+	@media (min-width: 768px) {
+		width: 26%;
+		margin: -13% 0 0 3.7%;
+	}
+}
+
+.portrait {
+	object-fit: cover;
+}

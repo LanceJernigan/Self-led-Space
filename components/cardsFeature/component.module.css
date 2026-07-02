@@ -52,6 +52,21 @@
 	}
 }
 
+/* member page uses this block on its own (no description), so it wants a
+   compact frame rather than the tall feature treatment other pages get, and
+   the heading should sit close to the block so it reads as one unit */
+.component:not(:has(.description)) {
+	gap: 40px;
+}
+
+.component:not(:has(.description)) .wrapper {
+	min-height: 0;
+
+	@media (min-width: 1024px) {
+		padding: 90px 50px;
+	}
+}
+
 .background {
 	object-fit: cover;
 	z-index: -1;
