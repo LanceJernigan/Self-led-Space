@@ -1,0 +1,4 @@
+.spacing {
+	display: grid;
+	gap: 100px;
+}
