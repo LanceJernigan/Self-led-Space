@@ -112,3 +112,15 @@
 		background: rgba(255, 255, 255, 0.2);
 	}
 }
+.status {
+	margin-top: 5px;
+	font-size: 0.9rem;
+}
+
+.status[data-status="success"] {
+	color: #2f855a;
+}
+
+.status[data-status="error"] {
+	color: #c53030;
+}

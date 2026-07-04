@@ -6,30 +6,12 @@ import { Link } from "next-view-transitions";
 import Menu from "@/components/shared/icons/menu";
 import { useState } from "react";
 
-const links = [
-	{
-		href: "/",
-		label: "Home",
-	},
-	{
-		href: "/about",
-		label: "About",
-	},
-	{
-		href: "/services",
-		label: "Services",
-	},
-	{
-		href: "/team",
-		label: "Our Team",
-	},
-	{
-		href: "/contact",
-		label: "Contact",
-	},
-];
+type HeaderProps = {
+	links: { label: string; href: string; id?: string | null }[];
+	logo: { src: string; alt: string };
+};
 
-const Header = () => {
+const Header = ({ links, logo }: HeaderProps) => {
 	const [open, setOpen] = useState(false);
 
 	return (
@@ -41,10 +23,10 @@ const Header = () => {
 						className={styles.logo}
 					>
 						<Image
-							src="/assets/images/logo.png"
+							src={logo.src}
 							width="120"
 							height="120"
-							alt="logo"
+							alt={logo.alt}
 							quality="100"
 						/>
 					</Link>

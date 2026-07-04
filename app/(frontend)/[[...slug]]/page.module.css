@@ -1,0 +1,10 @@
+.spacing {
+	display: grid;
+	gap: 100px;
+}
+
+.spacingTop {
+	margin-top: 100px;
+	display: grid;
+	gap: 100px;
+}

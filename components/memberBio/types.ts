@@ -1,10 +1,7 @@
+import type { Team } from "@/src/payload-types";
+
 export type MemberBioProps = {
 	name: string;
 	title: string;
-	intro: string[];
-	gallery: {
-		src: string;
-		alt: string;
-	}[];
-	body: string[];
+	bio: Team["bio"];
 };

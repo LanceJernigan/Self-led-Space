@@ -24,14 +24,26 @@
 	text-wrap: balance;
 }
 
-.description {
+/* Bio flow: text runs and image runs the member composes, in order. */
+.content {
 	display: grid;
-	gap: 1rem;
+	gap: 50px;
 }
 
+/* A run of text (paragraphs, lists, etc.). */
+.prose {
+	display: grid;
+	gap: 1rem;
+
+	p {
+		line-height: 1.6;
+	}
+}
+
+/* Consecutive images: 2-up on desktop, stacked on mobile. Design uses 50px gap. */
 .gallery {
 	display: grid;
-	gap: 25px;
+	gap: 50px;
 
 	@media (min-width: 768px) {
 		grid-template-columns: 1fr 1fr;
@@ -41,7 +53,7 @@
 .image {
 	position: relative;
 	width: 100%;
-	aspect-ratio: 6 / 5;
+	aspect-ratio: 1 / 1;
 	border-radius: 20px;
 	overflow: hidden;
 

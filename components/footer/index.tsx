@@ -1,10 +1,17 @@
 import styles from "./component.module.css";
 
-const Footer = () => {
+type FooterProps = {
+	organizationName: string;
+};
+
+const Footer = ({ organizationName }: FooterProps) => {
+	const year = new Date().getFullYear();
 	return (
 		<footer className={styles.component}>
 			<div className={styles.wrapper}>
-				<p>&copy; 2023 Self-led Space</p>
+				<p>
+					&copy; {year} {organizationName}
+				</p>
 			</div>
 		</footer>
 	);
