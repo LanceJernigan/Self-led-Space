@@ -17,8 +17,8 @@ except the blocked/deferred items below.
 docker start selfled-postgres        # Postgres :5433 (if not already up)
 npm run dev                          # http://localhost:3000  •  /admin
 ```
-Dev logins (CHANGE BEFORE PROD): admin `admin@selfledspace.com` / `changeme-dev-admin` ·
-member `mannie@selfledspace.com` / `changeme-dev-mannie`.
+Dev logins: admin `admin@selfledspace.com` · member `mannie@selfledspace.com`. Passwords are
+not committed — see "Dev logins" below.
 
 **What's left (in priority order):**
 1. **Payload migrations** for production — dev auto-push doesn't run in prod, and enabling
@@ -157,10 +157,14 @@ Dynamic. Remaining items are Phase-5 polish (above), not blockers for client tes
 - **Access control:** member login edits only their own profile ✓; admin-only fields
   (`active`, `slug`) silently ignored for members ✓; member `create` → 403 ✓; admin full ✓.
 
-## Dev login credentials (CHANGE BEFORE PROD)
+## Dev logins
 
-- Admin:  `admin@selfledspace.com`  / `changeme-dev-admin`
-- Member: `mannie@selfledspace.com` / `changeme-dev-mannie`
+Seed accounts are `admin@selfledspace.com` (admin) and `mannie@selfledspace.com` (member).
+
+**Passwords are never committed** — this repo is public, so a password in the repo is a live
+credential once the CMS is deployed. `npm run seed` reads `SEED_ADMIN_PASSWORD` /
+`SEED_MEMBER_PASSWORD`, or generates a random one and prints it once. Production passwords
+live in your password manager only.
 
 ## Morning quick-start
 

@@ -1,4 +1,5 @@
 import path from "path";
+import { randomBytes } from "crypto";
 import { fileURLToPath } from "url";
 import { getPayload } from "payload";
 import config from "@payload-config";
@@ -6,6 +7,24 @@ import type { Team } from "../payload-types";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
+
+/**
+ * Seed passwords must never be committed. This repo is public, so a hardcoded
+ * password becomes a live credential the moment the CMS is deployed. Set the
+ * env var to choose one; otherwise a random password is generated and printed
+ * once, so local dev still works without any setup.
+ */
+const seedPassword = (
+	envVar: string,
+	label: string,
+	logger: { info: (msg: string) => void },
+) => {
+	const fromEnv = process.env[envVar];
+	if (fromEnv) return fromEnv;
+	const generated = randomBytes(18).toString("base64url");
+	logger.info(`Generated ${label} password (set ${envVar} to choose): ${generated}`);
+	return generated;
+};
 const img = (name: string) =>
 	path.resolve(dirname, "../../public/assets/images", name);
 
@@ -77,7 +96,7 @@ const seed = async () => {
 			collection: "users",
 			data: {
 				email: "admin@selfledspace.com",
-				password: "changeme-dev-admin",
+				password: seedPassword("SEED_ADMIN_PASSWORD", "admin", payload.logger),
 				role: "admin",
 			},
 		});
@@ -156,7 +175,7 @@ const seed = async () => {
 		collection: "users",
 		data: {
 			email: "mannie@selfledspace.com",
-			password: "changeme-dev-mannie",
+			password: seedPassword("SEED_MEMBER_PASSWORD", "member", payload.logger),
 			role: "member",
 			member: team.id,
 		},
