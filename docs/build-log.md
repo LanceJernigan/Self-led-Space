@@ -180,6 +180,26 @@ npm run dev                     # http://localhost:3000  (site)  /admin  (CMS)
   host to `next.config.ts` `images.remotePatterns` so `next/image` can optimize it.
 - Set `PAYLOAD_SECRET` (openssl rand -hex 32) and `NEXT_PUBLIC_SERVER_URL` for prod.
 
+## Contact-form notifications (Resend)
+
+`.env.example` is itself caught by the `.env*` ignore rule, so the vars are mirrored here:
+
+```
+RESEND_API_KEY=             # without it, Payload logs emails to the console instead of sending
+RESEND_FROM_ADDRESS=        # defaults to onboarding@resend.dev (see below)
+RESEND_FROM_NAME=           # defaults to "Self-led Space"
+CONTACT_NOTIFICATION_EMAIL= # fallback recipient, used only when Site Settings → email is blank
+```
+
+- Recipient resolves as **Site Settings → email**, then `CONTACT_NOTIFICATION_EMAIL`. If neither
+  is set the submission still saves and a warning is logged — no mail is sent.
+- `Reply-To` is the submitter, so replying from the inbox reaches them directly.
+- The hook (`src/hooks/notifyContactSubmission.ts`) never throws: a mail failure is logged and
+  swallowed so an inquiry is never lost to a Resend outage.
+- **Before prod:** selfledspace.com is NOT yet verified in Resend. Until it is, sends only work
+  from `onboarding@resend.dev` and only to the Resend account owner's address. Verify the domain
+  (DNS records in the Resend dashboard), then set `RESEND_FROM_ADDRESS` to an address on it.
+
 ## Loose ends to decide together
 
 - Marketing pages (Home/About/Services/Contact) are still hardcoded JSX — Phase 3 moves them

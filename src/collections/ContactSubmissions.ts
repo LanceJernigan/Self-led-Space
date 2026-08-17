@@ -1,6 +1,7 @@
 import type { CollectionConfig } from "payload";
 import { isAdmin } from "../access/isAdmin";
 import { adminOnlyNav } from "../access/adminOnlyNav";
+import { notifyContactSubmission } from "../hooks/notifyContactSubmission";
 
 /**
  * Business contact-form submissions. Anyone can create (public form);
@@ -21,6 +22,9 @@ export const ContactSubmissions: CollectionConfig = {
 		read: isAdmin,
 		update: isAdmin,
 		delete: isAdmin,
+	},
+	hooks: {
+		afterChange: [notifyContactSubmission],
 	},
 	fields: [
 		{

@@ -124,3 +124,14 @@
 .status[data-status="error"] {
 	color: #c53030;
 }
+
+/* Honeypot: hidden from people, visible to bots that fill every input.
+   Not `display:none` — some bots skip those. Kept out of the tab order and
+   the accessibility tree so it never reaches a screen reader. */
+.honeypot {
+	position: absolute;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
